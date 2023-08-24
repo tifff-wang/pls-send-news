@@ -1,7 +1,10 @@
+import Home from './Home'
+
 function App() {
   return (
     <div>
-      <h1>Widgets for the win!</h1>
+      <h1>pls send news</h1>
+      <Home />
     </div>
   )
 }
