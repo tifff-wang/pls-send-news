@@ -1,23 +1,106 @@
-.widget-details .visible {
-  display: block;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Roboto&display=swap');
+
+
+/* 
+/* HOME PAGE */
+body {
+  background-color: rgb(237, 231, 223);
+  margin-bottom: 10rem;
 }
 
-.widget-details .hidden {
-  display: none;
+h1 {
+  font-family: 'Abril Fatface', 'cursive';
+  text-align: center;
+  font-size: 80px;
+  /* font-family: 'Roboto', sans-serif;*/
 }
+
+.loading {
+  font-family: 'Abril Fatface', 'cursive';
+  text-align: center;
+  font-size: 40px;
+}
+
+.homepage {
+align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  font-family: 'Abril Fatface', 'cursive';
+  font-size: 55px;
+  justify-content: center;
+
+  display: flex;
+  align-items: center; 
+  padding: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  height: 10rem;
+  width: 50rem;
+
+  background-color: rgb(237, 231, 223);
+  border-radius: 1rem;
+  border-style: solid; /*removes shadow */
+  border-color: black;
+  box-shadow: none;
+}
+
+.dropdown {
+  font-family: 'Abril Fatface', 'cursive';
+  font-size: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 7.5rem;
+  
+  text-align: center;
+  background-color: rgb(237, 231, 223);
+  border-radius: 15px;
+  border-style: solid; /*removes shadow */
+  border-color: black;
+  box-shadow: none;
+}
+
+/* .global{
+  display: flex;
+  flex-direction: row;
+} */
+
+/* ARTICLES */
 
 .articleImage {
   height: 100px;
+  border-radius: 15px;
 }
 
-a {
+.article {
+  background-color: rgb(237, 231, 223);
+  font-size: 45px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  margin: 10px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  width: 70rem;
+}
+
+p {
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+a { /*link*/
   text-decoration: none;
   color: black;
 }
 
-.article {
-  background-color: rgb(207, 203, 203);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 15px;
-}
+
