@@ -43,5 +43,20 @@ server.get('/api/v1/mediastack-articles/us/:category', async (req, res) => {
   )
   res.json(response.body)
 })
+server.get('/api/v1/mediastack-articles/:dates', async (req, res) => {
+  const dates = req.params.dates
+  const response = await request.get(
+    `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_KEY}&countries=nz&date=${dates}&sort=popularity`
+  )
+  res.json(response.body)
+})
+
+server.get('/api/v1/mediastack-articles/:keyword', async (req, res) => {
+  const keyword = req.params.keyword
+  const response = await request.get(
+    `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_KEY}&countries=nz,gb,us&date=2023-08-18,2023-08-24&sort=popularity&keywords=${keyword}`
+  )
+  res.json(response.body)
+})
 
 export default server
