@@ -3,6 +3,8 @@ import * as URL from 'node:url'
 import request from 'superagent'
 import 'dotenv/config'
 
+import getDate from './helper.ts'
+
 const __filename = URL.fileURLToPath(import.meta.url)
 const __dirname = Path.dirname(__filename)
 
@@ -35,6 +37,16 @@ server.get('/api/v1/mediastack-articles', async (req, res) => {
   )
   res.json(response.body)
 })
+
+// get todays date api
+// server.get('/api/v1/mediastack-articles', async (req, res) => {
+//   const response = await request.get(
+//     `http://api.mediastack.com/v1/news?access_key=${
+//       process.env.MEDIASTACK_KEY
+//     }&countries=nz&date=${getDate()},${getDate()}&sort=popularity`
+//   )
+//   res.json(response.body)
+// })
 
 server.get('/api/v1/mediastack-articles/us/:category', async (req, res) => {
   const category = req.params.category

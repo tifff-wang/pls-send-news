@@ -13,7 +13,6 @@ export async function getArticlesByCategory(
   category: string
 ): Promise<Models.Data> {
   const response = await request.get(`${articlesUrl}/us/${category}`)
-  console.log(response)
   return response.body.data
 }
 
@@ -21,7 +20,6 @@ export async function getArticlesByDateRange(
   dateRange: string
 ): Promise<Models.Data> {
   const response = await request.get(`${articlesUrl}/${dateRange}`)
-  console.log(response)
   return response.body.data
 }
 
@@ -29,6 +27,5 @@ export async function getArticlesByKeyword(
   keyword: string
 ): Promise<Models.Data> {
   const response = await request.get(`${articlesUrl}/${keyword}`)
-  console.log(response)
   return response.body.data
 }
