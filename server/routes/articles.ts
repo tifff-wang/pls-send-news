@@ -1,12 +1,12 @@
 import express from 'express'
-import { getWidgets } from '../db/db.ts'
+import { getArticles } from 'Home'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  getWidgets()
-    .then((widgets) => {
-      res.json(widgets)
+  getArticles()
+    .then((articles) => {
+      res.json(articles)
     })
     .catch((err) => {
       res.status(500).send(err.message)

@@ -36,4 +36,12 @@ server.get('/api/v1/mediastack-articles', async (req, res) => {
   res.json(response.body)
 })
 
+server.get('/api/v1/mediastack-articles/us/:category', async (req, res) => {
+  const category = req.params.category
+  const response = await request.get(
+    `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_KEY}&countries=us&date=2023-08-18,2023-08-24&sort=popularity&categories=${category}`
+  )
+  res.json(response.body)
+})
+
 export default server
