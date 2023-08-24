@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import * as Models from '../../models/MediaStack'
 
 import { getLocalArticles, getArticlesWithFilters } from '../apiClient'
@@ -21,8 +21,8 @@ export default function Home() {
   const [displayNews, setDisplayNews] = useState(false)
   const [category, setCategory] = useState(categories[0])
   const [country, setCountry] = useState(countries[0])
-  const [limit, setLimit] = useState(5)
-  const [error, setError] = useState(null as Error | null)
+  const [limit, setLimit] = useState<number>(5)
+  const [error, setError] = useState<Error | null>(null)
 
   async function fetchArticles() {
     try {
