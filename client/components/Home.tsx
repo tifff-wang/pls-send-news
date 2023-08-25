@@ -17,7 +17,7 @@ const countries = ['us', 'au', 'gb', 'cn', 'ca']
 
 export default function Home() {
   const [articles, setArticles] = useState<Models.Data | null>(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [displayNews, setDisplayNews] = useState(false)
   const [category, setCategory] = useState(categories[0])
   const [country, setCountry] = useState(countries[0])
@@ -90,7 +90,7 @@ export default function Home() {
         <img
           className="loading-icon"
           alt="loading icon"
-          src="./loading.png"
+          src="./loading-larger.png"
         ></img>
         <p className="loading">Articles are loading</p>{' '}
       </div>
