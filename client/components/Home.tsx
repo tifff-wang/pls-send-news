@@ -125,29 +125,33 @@ export default function Home() {
                   id="newsNum"
                   name="newsNum"
                 ></input>
-                <p>{limit}</p>
+                <label htmlFor="newsNumber" className="slider-number">
+                  {limit}
+                </label>
               </div>
               <button onClick={handleGlobalClick}>See global news</button>
-              <label htmlFor="country">Choose a country:</label>
-              <select
-                className="dropdown"
-                onChange={handleCountryChange}
-                value={country}
-                id="country"
-                name="country"
-              >
-                {countries.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+              <div className="dropdownContainer">
+                <label htmlFor="country">Choose a country:</label>
+                <select
+                  className="dropdownCountry"
+                  onChange={handleCountryChange}
+                  value={country}
+                  id="country"
+                  name="country"
+                >
+                  {countries.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
             {country === 'us' ? (
-              <div>
+              <div className="dropdownContainer">
                 <label htmlFor="category">Choose a category:</label>
                 <select
-                  className="dropdown"
+                  className="dropdownCategory"
                   onChange={handleCategoryChange}
                   value={category}
                   id="category"
@@ -166,16 +170,18 @@ export default function Home() {
           </div>
         ) : (
           <>
-            <button className="back-button" onClick={handleBackClick}>
-              Back
-            </button>
+            <div className="buttonContainer">
+              <button className="back-button" onClick={handleBackClick}>
+                Back
+              </button>
 
-            <button className="read-text-button" onClick={readText}>
-              Read the news
-            </button>
-            <button className="read-text-button" onClick={stopReading}>
-              Stop reading
-            </button>
+              <button className="read-text-button" onClick={readText}>
+                Read the news
+              </button>
+              <button className="read-text-button" onClick={stopReading}>
+                Stop reading
+              </button>
+            </div>
 
             <ul>
               {articles?.map((article) => {

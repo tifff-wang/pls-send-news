@@ -8,11 +8,6 @@ body {
   margin-bottom: 10rem;
 }
 
-div {
-  text-align: center;
-  align-items: center;
-}
-
 h1 {
   font-family: 'Abril Fatface', 'cursive';
   text-align: center;
@@ -22,7 +17,16 @@ h1 {
 label {
   font-family: 'Abril Fatface', 'cursive';
   text-align: center;
-  font-size: 18px;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.slider-number {
+  font-family: 'Abril Fatface', 'cursive';
+  text-align: center;
+  font-size: 30px;
+  margin-right: 15px;
+  margin-left: 20px;
 }
 
 .loading {
@@ -36,6 +40,11 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.dropdownContainer {
+  display: flex;
+  margin: 30px;
 }
 
 button {
@@ -69,6 +78,8 @@ button {
   padding: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   height: 4rem;
   width: 25rem;
 
@@ -79,7 +90,7 @@ button {
   box-shadow: none;
 }
 
-.dropdown {
+.dropdownCountry {
   font-family: 'Abril Fatface', 'cursive';
   font-size: 30px;
 
@@ -87,7 +98,8 @@ button {
   align-items: center;
   justify-content: center;
 
-  height: 5.5rem;
+  /* height: 5.5rem; */
+  width: 15rem;
 
   text-align: center;
   background-color: rgb(237, 231, 223);
@@ -95,6 +107,30 @@ button {
   border-style: solid;
   border-color: black;
   box-shadow: none;
+
+  padding: 5px;
+  margin-left: 9px;
+}
+
+.dropdownCategory {
+  font-family: 'Abril Fatface', 'cursive';
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* height: 5.5rem; */
+  width: 15rem;
+
+  text-align: center;
+  background-color: rgb(237, 231, 223);
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  box-shadow: none;
+
+  padding: 5px;
 }
 
 .limitSlider {
@@ -111,12 +147,12 @@ input[type='range'] {
   appearance: none;
 }
 
-.center-container {
+/* .center-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} */
 
 /* .global{
   display: flex;
@@ -141,6 +177,8 @@ input[type='range'] {
   border-style: solid;
   border-color: black;
   width: 70rem;
+  justify-items: center;
+  /* display: flex; */
 }
 
 p {
@@ -161,6 +199,8 @@ a {
   display: flex;
   flex-direction: auto;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @keyframes spin {
@@ -198,4 +238,8 @@ a {
   border-top: 1px rgb(159, 159, 159) solid;
   font-size: 15px;
   padding-top: 50px;
+}
+
+ul {
+  list-style-type: none;
 }
