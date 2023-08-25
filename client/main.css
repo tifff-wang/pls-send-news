@@ -104,8 +104,8 @@ a {
 }
 
 .loading-icon {
-  height: 50px;
-  animation: spin 3s infinite;
+  height: 70px;
+  animation: spin 4s infinite;
   display: flex;
   flex-direction: auto;
   align-items: center;
@@ -123,6 +123,18 @@ a {
   }
   37.5% {
     transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  62.5% {
+    transform: rotate(225deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  87.5% {
+    transform: rotate(315deg);
   }
   100% {
     transform: rotate(360deg);

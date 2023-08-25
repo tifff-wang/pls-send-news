@@ -90,7 +90,7 @@ export default function Home() {
         <img
           className="loading-icon"
           alt="loading icon"
-          src="./loading.png"
+          src="./loading-larger.png"
         ></img>
         <p className="loading">Articles are loading</p>{' '}
       </div>
