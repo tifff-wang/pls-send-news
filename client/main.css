@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Roboto&display=swap');
 
 /* 
 /* HOME PAGE */
@@ -23,7 +22,7 @@ h1 {
 }
 
 .homepage {
-align-items: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +34,7 @@ button {
   justify-content: center;
 
   display: flex;
-  align-items: center; 
+  align-items: center;
   padding: 4rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -58,7 +57,7 @@ button {
   justify-content: center;
 
   height: 7.5rem;
-  
+
   text-align: center;
   background-color: rgb(237, 231, 223);
   border-radius: 15px;
@@ -98,9 +97,34 @@ p {
   font-weight: 600;
 }
 
-a { /*link*/
+a {
+  /*link*/
   text-decoration: none;
   color: black;
 }
 
+.loading-icon {
+  height: 50px;
+  animation: spin 3s infinite;
+  display: flex;
+  flex-direction: auto;
+  align-items: center;
+}
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
