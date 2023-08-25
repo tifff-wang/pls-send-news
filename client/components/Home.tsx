@@ -125,7 +125,9 @@ export default function Home() {
                   id="newsNum"
                   name="newsNum"
                 ></input>
-                <p className="slider-number">{limit}</p>
+                <label htmlFor="newsNumber" className="slider-number">
+                  {limit}
+                </label>
               </div>
               <button onClick={handleGlobalClick}>See global news</button>
               <div className="dropdownContainer">

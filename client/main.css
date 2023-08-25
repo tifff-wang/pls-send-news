@@ -14,12 +14,19 @@ h1 {
   font-size: 80px;
 }
 
-label,
+label {
+  font-family: 'Abril Fatface', 'cursive';
+  text-align: center;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
 .slider-number {
   font-family: 'Abril Fatface', 'cursive';
   text-align: center;
   font-size: 30px;
   margin-right: 15px;
+  margin-left: 20px;
 }
 
 .loading {
