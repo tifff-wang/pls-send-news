@@ -8,6 +8,11 @@ body {
   margin-bottom: 10rem;
 }
 
+div {
+  text-align: center;
+  align-items: center;
+}
+
 h1 {
   font-family: 'Abril Fatface', 'cursive';
   text-align: center;
@@ -50,20 +55,36 @@ button {
 
 .dropdown {
   font-family: 'Abril Fatface', 'cursive';
-  font-size: 40px;
+  font-size: 30px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  height: 7.5rem;
+  height: 5.5rem;
 
   text-align: center;
   background-color: rgb(237, 231, 223);
   border-radius: 15px;
-  border-style: solid; /*removes shadow */
+  border-style: solid;
   border-color: black;
   box-shadow: none;
+}
+
+input[type='range'] {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 15px;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+}
+
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 /* .global{
