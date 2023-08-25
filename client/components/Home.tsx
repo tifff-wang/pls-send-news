@@ -85,7 +85,16 @@ export default function Home() {
   }
 
   if (loading) {
-    return <p className="loading">Articles are loading... </p>
+    return (
+      <div className="loadingContainer">
+        <img
+          className="loading-icon"
+          alt="loading icon"
+          src="./loading.png"
+        ></img>
+        <p className="loading">Articles are loading</p>{' '}
+      </div>
+    )
   }
 
   if (error) {
@@ -141,8 +150,14 @@ export default function Home() {
           <button className="back-button" onClick={handleBackClick}>
             Back
           </button>
-          {/* <button onClick={readText}>Read</button> */}
-          {/* <button onClick={stopReading}>Stop</button> */}
+
+          <button className="read-text-button" onClick={readText}>
+            Read
+          </button>
+          <button className="read-text-button" onClick={stopReading}>
+            Stop
+          </button>
+
           <ul>
             {articles?.map((article) => {
               return (
@@ -170,4 +185,21 @@ export default function Home() {
       )}
     </div>
   )
+
+  function readText() {
+    const text = [
+      "here's the top news for today",
+      articles?.map((article) => displayTextForArticle(article)).join(''),
+    ]
+    const value = new SpeechSynthesisUtterance(text)
+    window.speechSynthesis.speak(value)
+  }
+
+  function stopReading() {
+    window.speechSynthesis.cancel()
+  }
+
+  function displayTextForArticle(article: Models.Data): string {
+    return `, ${article.title}, ${article.description}`
+  }
 }
