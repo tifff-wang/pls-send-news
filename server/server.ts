@@ -12,32 +12,45 @@ import express from 'express'
 import articles from './routes/articles.ts'
 
 const server = express()
+const dateRange = '2023-08-24,2023-08-25'
 server.use(express.json())
 server.use(express.static(Path.join(__dirname, 'public')))
 
 // server.use('/api/v1/articles', articles)
 
 server.get('/api/v1/mediastack-articles', async (req, res) => {
-  
-try{
-  const response = await request.get(
-    `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_KEY}&countries=nz&date=2023-08-18,2023-08-24&sort=popularity`
-  )
-  res.json(response.body)
-} catch(error){
-  res.status(500).json({ error: error.message })
-}
+  try {
+    const limit = req.query.limit
+    const response = await request
+      .get(`http://api.mediastack.com/v1/news`)
+      .query({
+        access_key: process.env.MEDIASTACK_KEY,
+        countries: 'nz',
+        date: dateRange,
+        sort: 'popularity',
+        limit: limit,
+      })
+    res.json(response.body)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 server.get('/api/v1/mediastack-articles/filters', async (req, res) => {
-const {category, country, limit} = req.query
-  const dateRange = "2023-08-24,2023-08-25"
-  try{
-    const response = await request.get(
-      `http://api.mediastack.com/v1/news`).query({access_key: process.env.MEDIASTACK_KEY, countries: country, date: dateRange, sort: 'popularity', categories: category, limit: limit})
+  const { category, country, limit } = req.query
+  try {
+    const response = await request
+      .get(`http://api.mediastack.com/v1/news`)
+      .query({
+        access_key: process.env.MEDIASTACK_KEY,
+        countries: country,
+        date: dateRange,
+        sort: 'popularity',
+        categories: category,
+        limit: limit,
+      })
     res.json(response.body)
-  }
-  catch(error){
+  } catch (error) {
     res.status(500).json({ error: error.message })
   }
 })

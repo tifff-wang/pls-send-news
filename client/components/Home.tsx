@@ -27,7 +27,7 @@ export default function Home() {
   async function fetchArticles() {
     try {
       setLoading(true)
-      const articlesData = await getLocalArticles()
+      const articlesData = await getLocalArticles(limit)
       setArticles(articlesData)
     } catch (error) {
       setError(error as Error)
@@ -90,7 +90,7 @@ export default function Home() {
         <img
           className="loading-icon"
           alt="loading icon"
-          src="./loading.png"
+          src="./loading-larger.png"
         ></img>
         <p className="loading">Articles are loading</p>{' '}
       </div>
@@ -107,82 +107,102 @@ export default function Home() {
 
   return (
     <div className="homepage">
-      {!displayNews ? (
-        <div>
-          <button onClick={handleClick}>See this week&apos;s local news</button>
-          <div className="global">
-            {country === 'us' ? (
-              <select onChange={handleCategoryChange} value={category}>
-                {categories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
+      <div className="center-container">
+        {!displayNews ? (
+          <div>
+            <button onClick={handleClick}>
+              See this week&apos;s local news
+            </button>
+            <div className="global">
+              <div className="limitSlider">
+                <label htmlFor="newsNum">Number of articles:</label>
+                <input
+                  onChange={handleLimitChange}
+                  type="range"
+                  min="5"
+                  max="20"
+                  value={limit}
+                  id="newsNum"
+                  name="newsNum"
+                ></input>
+                <p>{limit}</p>
+              </div>
+              <button onClick={handleGlobalClick}>See global news</button>
+              <label htmlFor="country">Choose a country:</label>
+              <select
+                className="dropdown"
+                onChange={handleCountryChange}
+                value={country}
+                id="country"
+                name="country"
+              >
+                {countries.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
                   </option>
                 ))}
               </select>
+            </div>
+            {country === 'us' ? (
+              <div>
+                <label htmlFor="category">Choose a category:</label>
+                <select
+                  className="dropdown"
+                  onChange={handleCategoryChange}
+                  value={category}
+                  id="category"
+                  name="category"
+                >
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </div>
             ) : (
               ''
             )}
-            <select
-              className="dropdown"
-              onChange={handleCountryChange}
-              value={country}
-            >
-              {countries.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-
-            <input
-              onChange={handleLimitChange}
-              type="range"
-              min="5"
-              max="50"
-              value={limit}
-            ></input>
-            <p>{limit}</p>
-            <button onClick={handleGlobalClick}>See global news</button>
           </div>
-        </div>
-      ) : (
-        <>
-          <button className="back-button" onClick={handleBackClick}>
-            Back
-          </button>
+        ) : (
+          <>
+            <button className="back-button" onClick={handleBackClick}>
+              Back
+            </button>
 
-          <button className="read-text-button" onClick={readText}>
-            Read
-          </button>
-          <button className="read-text-button" onClick={stopReading}>
-            Stop
-          </button>
+            <button className="read-text-button" onClick={readText}>
+              Read the news
+            </button>
+            <button className="read-text-button" onClick={stopReading}>
+              Stop reading
+            </button>
 
-          <ul>
-            {articles?.map((article) => {
-              return (
-                <li key={article.title}>
-                  <a href={article.url} key={article.title}>
-                    <div className="article">
-                      <h3>{article.title}</h3>
-                      <p>{article.description}</p>
-                      <img
-                        className="articleImage"
-                        src={
-                          article.image
-                            ? article.image
-                            : '../reference-imgs/news-img.png'
-                        }
-                        alt={article.title}
-                      ></img>
-                    </div>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </>
-      )}
+            <ul>
+              {articles?.map((article) => {
+                return (
+                  <li key={article.title}>
+                    <a href={article.url} key={article.title}>
+                      <div className="article">
+                        <h3>{article.title}</h3>
+                        <p>{article.description}</p>
+                        <img
+                          className="articleImage"
+                          src={
+                            article.image
+                              ? article.image
+                              : '../reference-imgs/news-img.png'
+                          }
+                          alt={article.title}
+                        ></img>
+                      </div>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   )
 

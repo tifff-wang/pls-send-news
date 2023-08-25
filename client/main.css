@@ -17,7 +17,12 @@ h1 {
   font-family: 'Abril Fatface', 'cursive';
   text-align: center;
   font-size: 80px;
-  /* font-family: 'Roboto', sans-serif;*/
+}
+
+label {
+  font-family: 'Abril Fatface', 'cursive';
+  text-align: center;
+  font-size: 18px;
 }
 
 .loading {
@@ -53,6 +58,27 @@ button {
   box-shadow: none;
 }
 
+.read-text-button,
+.back-button {
+  font-family: 'Abril Fatface', 'cursive';
+  font-size: 30px;
+  justify-content: center;
+
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 4rem;
+  width: 25rem;
+
+  background-color: rgb(237, 231, 223);
+  border-radius: 1rem;
+  border-style: solid; /*removes shadow */
+  border-color: black;
+  box-shadow: none;
+}
+
 .dropdown {
   font-family: 'Abril Fatface', 'cursive';
   font-size: 30px;
@@ -69,6 +95,11 @@ button {
   border-style: solid;
   border-color: black;
   box-shadow: none;
+}
+
+.limitSlider {
+  font-family: 'Abril Fatface', 'cursive';
+  font-size: 30px;
 }
 
 input[type='range'] {
@@ -125,8 +156,8 @@ a {
 }
 
 .loading-icon {
-  height: 50px;
-  animation: spin 3s infinite;
+  height: 70px;
+  animation: spin 4s infinite;
   display: flex;
   flex-direction: auto;
   align-items: center;
@@ -136,16 +167,35 @@ a {
   0% {
     transform: rotate(0deg);
   }
+  12.5% {
+    transform: rotate(45deg);
+  }
   25% {
     transform: rotate(90deg);
+  }
+  37.5% {
+    transform: rotate(135deg);
   }
   50% {
     transform: rotate(180deg);
   }
+  62.5% {
+    transform: rotate(225deg);
+  }
   75% {
     transform: rotate(270deg);
+  }
+  87.5% {
+    transform: rotate(315deg);
   }
   100% {
     transform: rotate(360deg);
   }
+}
+
+.footer {
+  margin-top: 100px;
+  border-top: 1px rgb(159, 159, 159) solid;
+  font-size: 15px;
+  padding-top: 50px;
 }
