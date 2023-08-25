@@ -17,7 +17,7 @@ const countries = ['us', 'au', 'gb', 'cn', 'ca']
 
 export default function Home() {
   const [articles, setArticles] = useState<Models.Data | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [displayNews, setDisplayNews] = useState(false)
   const [category, setCategory] = useState(categories[0])
   const [country, setCountry] = useState(countries[0])
